@@ -21,19 +21,8 @@ set list_of_package_ids $config(package_id)
 set one_instance_p [ad_decode [llength $list_of_package_ids] 1 1 0]
 set can_read_private_data_p [acs_privacy::user_can_read_private_data_p -object_id [ad_conn package_id]]
 
-db_multirow forums select_forums "
-    select forums_forums.package_id,
-           acs_object.name(apm_package.parent_id(forums_forums.package_id)) as parent_name,
-           (select site_node.url(site_nodes.node_id)
-            from site_nodes
-            where site_nodes.object_id = forums_forums.package_id) as url,
-           forums_forums.forum_id,
-           forums_forums.name,
-           case when last_modified > (sysdate - 1) then 't' else 'f' end as new_p
-    from forums_forums_enabled forums_forums,
-    acs_objects
-    where acs_objects.object_id = forums_forums.forum_id and 
-    forums_forums.package_id in ([join $list_of_package_ids ,])
-    order by parent_name,
-             forums_forums.name
-"
+set query select_forums
+
+db_multirow forums $query {}
+
+
