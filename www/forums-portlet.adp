@@ -19,68 +19,34 @@
 %>
 
 <if @can_read_private_data_p@>
-<if @shaded_p@ false>
+  <if @shaded_p@ false>
 
-  <if @forums:rowcount@ gt 0>
+    <if @forums:rowcount@ gt 0>
 
-<%
-    set new_package_id ""
-    set old_package_id ""
-%>
+      <multiple name="forums">
+        @forums.parent_name@
+        <ul>
+          <group column="package_id">
+            <li>
+              <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+              <if @forums.new_p@ eq t>
+                <span class="new_flag">
+                  <img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline">
+                </span>
+              </if>
+            </li>
+          </group>
+        </ul>
+      </multiple>
 
-    <if @one_instance_p@ false>
-      <table border="0" bgcolor="white" cellpadding="2" cellspacing="0" width="100%">
-        <tr class="table-header">
-          <td><strong class="table-header">#forums.Forums#</strong></td>
-          <td><strong class="table-header">#dotlrn.clubs_pretty_name#</strong></td>
-        </tr>
-    </if>
-
-<multiple name="forums">
-
-<% set new_package_id $forums(package_id) %>
-
-  <if @one_instance_p@ false and @new_package_id@ ne @old_package_id@ and @old_package_id@ ne "">
-    <tr>
-  </if>
-
-    <if @one_instance_p@>
-		 <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
     </if>
     <else>
-      <if @forums.rownum@ odd>
-        <tr class="odd">
-      </if>
-      <else>
-        <tr class="even">
-      </else>
-        <td><a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-            <if @forums.new_p@ eq t><span class="new_flag"><img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline"></span></if>
-         </td>
-        <td>@forums.parent_name@</td>
-      </tr>
+      <small>#forums-portlet.No_Forums#</small>
     </else>
 
-<% set old_package_id $new_package_id %>
-
-<if @one_instance_p@ false and @new_package_id@ ne @old_package_id@>
-   </tr>
-</if>
-
-</multiple>
-
-<if @one_instance_p@ false>
-   </table>
-</if>
-    
   </if>
   <else>
-    <small>#forums-portlet.No_Forums#</small>
+    &nbsp;
   </else>
-
-</if>
-<else>
-  &nbsp;
-</else>
 </if>
 
