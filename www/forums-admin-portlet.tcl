@@ -40,7 +40,7 @@ db_multirow forums select_forums {
     where package_id = :package_id
 }
 
-set url [site_node::get_url_from_object_id -object_id $package_id]
+set url [lindex [site_node::get_url_from_object_id -object_id $package_id] 0]
 
 set package_id [ad_conn package_id]
 set default_name [db_string select_package_name {
