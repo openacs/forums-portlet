@@ -18,8 +18,9 @@
 
 %>
 
-<if @forums:rowcount@>
 <if @shaded_p@ false>
+<if @forums:rowcount@>
+
 
 <multiple name="forums">
 
@@ -35,8 +36,11 @@
 
 </multiple>
 
-</if>
   </if>
   <else>
     <small>#forums-portlet.No_Forums#</small>
   </else>
+</if>
+<else>
+<br>
+</else>
