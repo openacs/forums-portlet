@@ -43,7 +43,7 @@
 
     <li>
       <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-<if @forums.new_p@ eq t><img src="/doc/acs-datetime/pics/new.gif" align="absmiddle" border="0" alt="New!" align="baseline"></if>
+<if @forums.new_p@ eq t><img src="/shared/images/new.gif" align="absmiddle" border="0" alt="New!" align="baseline"></if>
     </li>
 
 <%
