@@ -18,15 +18,14 @@
 
 %>
 
-<if @forums:rowcount@ eq 0>
-  <small>No forums</small>
-</if>
-<else>
-  <ul>
+<ul>
 <multiple name="forums">
-    <li><a href=@url@forum-view?forum_id=@forums.forum_id@>@forums.name@</a>&nbsp;-&nbsp;<a href=@url@forum-edit?forum_id=@forums.forum_id@>Administration</a>
+  <li>
+    <a href="@url@forum-edit?forum_id=@forums.forum_id@">@forums.name@</a>
+  </li>
 </multiple>
-  </ul>
-</else>
-<p>
-<a href="@url@admin/forum-new?name=@encoded_default_name@">New Forum</a>
+  <br>
+  <li>
+    <a href="@url@admin/forum-new?name=@encoded_default_name@">New Forum</a>
+  </li>
+</ul>
