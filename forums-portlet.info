@@ -16,7 +16,7 @@
         <vendor url="http://openforce.net/">OpenForce, Inc.</vendor>
 
         <provides url="forums-portlet" version="0.1a"/>
-        <requires url="forums" version="0.1d"/>
+        <requires url="forums" version="0.4"/>
         <requires url="new-portal" version="0.1a"/>
 
         <parameters>
