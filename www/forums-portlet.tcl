@@ -28,9 +28,12 @@ db_multirow forums select_forums "
             from site_nodes
             where site_nodes.object_id = forums_forums.package_id) as url,
            forums_forums.forum_id,
-           forums_forums.name
-    from forums_forums_enabled forums_forums
-    where forums_forums.package_id in ([join $list_of_package_ids ,])
+           forums_forums.name,
+case when last_modified > (sysdate - 1) then 't' else 'f' end as new_p
+    from forums_forums_enabled forums_forums,
+    acs_objects
+    where acs_objects.object_id = forums_forums.forum_id and 
+    forums_forums.package_id in ([join $list_of_package_ids ,])
     order by parent_name,
              forums_forums.name
 "

@@ -44,6 +44,7 @@
 
     <li>
       <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+<if @forums.new_p@ eq t><b><small>(new postings!)</small></b></if>
     </li>
 
 <%
