@@ -2,10 +2,11 @@
 <message_catalog package_key="forums-portlet" package_version="0.1a" locale="ms_my" charset="utf-8">
 
   <msg key="admin_pretty_name">Penyeliaan Forum</msg>
-  <msg key="disabled">tidak dibenarkan</msg>
+  <msg key="disabled">dilumpuhkan</msg>
   <msg key="Forum">Forum</msg>
+  <msg key="lt_There_should_be_only_">Sepatutnya terdapat hanya satu keadan forum-forum untuk kegunaan pentadbir</msg>
   <msg key="New">Baru!</msg>
   <msg key="New_Forum">Forum Baru</msg>
   <msg key="No_Forums">Tiada Forum</msg>
-  <msg key="pretty_name">Forum-forum</msg>
+  <msg key="pretty_name">Forum-Forum</msg>
 </message_catalog>
