@@ -29,7 +29,7 @@ set list_of_package_ids $config(package_id)
 
 if {[llength $list_of_package_ids] > 1} {
     # We have a problem!
-    return -code error "There should be only one instance of forums for admin purposes"
+    return -code error "[_ forums-portlet.lt_There_should_be_only_]"
 }
 
 set package_id [lindex $list_of_package_ids 0]
@@ -47,7 +47,7 @@ set default_name [db_string select_package_name {
     select instance_name from apm_packages where package_id= :package_id
 }]
 
-append default_name " Forum"
+append default_name " [_ forums-portlet.Forum]"
 
 set encoded_default_name [ns_urlencode $default_name]
 

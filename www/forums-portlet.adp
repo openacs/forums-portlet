@@ -56,7 +56,7 @@
 
   </if>
   <else>
-    <small>No Forums</small>
+    <small>#forums-portlet.No_Forums#</small>
   </else>
 
 </if>
@@ -64,3 +64,4 @@
   &nbsp;
 </else>
 </if>
+

@@ -22,11 +22,11 @@
 <multiple name="forums">
   <li>
     <a href="@url@admin/forum-edit?forum_id=@forums.forum_id@">@forums.name@</a>
-<if @forums.enabled_p@ ne t><b>(disabled)</b></if>
+<if @forums.enabled_p@ ne t><b>(#forums-portlet.disabled#)</b></if>
   </li>
 </multiple>
   <br>
   <li>
-    <a href="@url@admin/forum-new?name=@encoded_default_name@">New Forum</a>
+    <a href="@url@admin/forum-new?name=@encoded_default_name@">#forums-portlet.New_Forum#</a>
   </li>
 </ul>

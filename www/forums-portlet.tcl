@@ -24,5 +24,3 @@ set can_read_private_data_p [acs_privacy::user_can_read_private_data_p -object_i
 set query select_forums
 
 db_multirow forums $query {}
-
-
