@@ -18,7 +18,6 @@
 
 %>
 
-<if @can_read_private_data_p@>
   <if @shaded_p@ false>
 
     <if @forums:rowcount@ gt 0>
@@ -48,6 +47,6 @@
   <else>
     &nbsp;
   </else>
-</if>
+
 
 
