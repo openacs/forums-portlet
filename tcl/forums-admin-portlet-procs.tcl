@@ -53,16 +53,13 @@ namespace eval forums_admin_portlet {
 
         @return new element_id
     } {
-        # we use "portal::add_element" here since there is no
-        # configuration necessary for this portlet (no params)
-        set element_id [portal::add_element \
-            -pretty_name [get_pretty_name] \
+        return [portal::add_element_parameters \
             -portal_id $portal_id \
             -portlet_name [get_my_name] \
+            -pretty_name [get_pretty_name] \
+            -key package_id \
+            -value $package_id
         ]
-
-        portal::set_element_param $element_id package_id $package_id
-        return $element_id
     }
 
     ad_proc -public remove_self_from_page {
