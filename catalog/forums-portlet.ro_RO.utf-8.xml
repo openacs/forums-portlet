@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<message_catalog package_key="forums-portlet" package_version="2.0.3" locale="RO_RO" charset="utf-8">
+<message_catalog package_key="forums-portlet" package_version="2.0.3" locale="ro_RO" charset="utf-8">
 
   <msg key="No_Forums">Nu sunt Forumuri</msg>
   <msg key="pretty_name">Forumuri</msg>
