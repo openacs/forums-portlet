@@ -43,7 +43,7 @@
 
     <li>
       <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-<if @forums.new_p@ eq t><span class="new_flag">#forums-portlet.new_link#</span></if>
+<if @forums.new_p@ eq t><span class="new_flag"><img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline"></span></if>
     </li>
 
 <%
