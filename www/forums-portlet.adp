@@ -33,19 +33,17 @@
 <% set new_package_id $forums(package_id) %>
 
   <if @one_instance_p@ false and @new_package_id@ ne @old_package_id@ and @old_package_id@ ne "">
-      <br>
     </ul>
   </if>
 
   <if @one_instance_p@ false and @new_package_id@ ne @old_package_id@>
-    <li>@forums.parent_name@
+    @forums.parent_name@
     <ul>
   </if>
 
     <li>
-      <if @forums.new_p@><b></if>
       <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-      <if @forums.new_p@></b></if>
+<if @forums.new_p@ eq t><img src="/doc/acs-datetime/pics/new.gif" align="absmiddle" border="0" alt="New!" align="baseline"></if>
     </li>
 
 <%
