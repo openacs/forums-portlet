@@ -18,35 +18,25 @@
 
 %>
 
-<if @can_read_private_data_p@>
-  <if @shaded_p@ false>
+<if @forums:rowcount@>
+<if @shaded_p@ false>
 
-    <if @forums:rowcount@ gt 0>
+<multiple name="forums">
 
-      <multiple name="forums">
-        @forums.parent_name@
-        <ul>
-          <group column="package_id">
-            <li>
-              <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-              <if @forums.new_p@ eq t>
-                <span class="new_flag">
-                  <img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline">
-                </span>
-              </if>
-            </li>
-          </group>
-        </ul>
-      </multiple>
+<if @one_instance_p@ false>@forums.parent_name@</if>
+  <ul>
+<group column="package_id">
+    <li>
+      <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+      <if @forums.new_p@ eq t><span class="new_flag"><img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline"></span></if>
+    </li>
+</group>
+  </ul>
 
-    </if>
-    <else>
-      <small>#forums-portlet.No_Forums#</small>
-    </else>
+</multiple>
 
+</if>
   </if>
   <else>
-    &nbsp;
+    <small>#forums-portlet.No_Forums#</small>
   </else>
-</if>
-
