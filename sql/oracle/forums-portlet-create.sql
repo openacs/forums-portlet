@@ -30,7 +30,7 @@
 -- License version 2 or higher.  Full text of the license is available
 -- from the GNU Project: http://www.fsf.org/copyleft/gpl.html
 
-@forums-portlet-sc-create.sql
+-- @forums-portlet-sc-create.sql
 
 declare
   ds_id portal_datasources.datasource_id%TYPE;
