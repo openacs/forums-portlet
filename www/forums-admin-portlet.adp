@@ -21,7 +21,8 @@
 <ul>
 <multiple name="forums">
   <li>
-    <a href="@url@forum-edit?forum_id=@forums.forum_id@">@forums.name@</a>
+    <a href="@url@admin/forum-edit?forum_id=@forums.forum_id@">@forums.name@</a>
+<if @forums.enabled_p@ ne t><b>(disabled)</b></if>
   </li>
 </multiple>
   <br>

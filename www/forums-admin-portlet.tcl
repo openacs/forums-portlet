@@ -35,8 +35,8 @@ if {[llength $list_of_package_ids] > 1} {
 set package_id [lindex $list_of_package_ids 0]
 
 db_multirow forums select_forums {
-    select forum_id, name
-    from forums_forums 
+    select forum_id, name, enabled_p
+    from forums_forums
     where package_id = :package_id
 }
 
