@@ -17,6 +17,7 @@
             acs_objects
             where acs_objects.object_id = forums_forums.forum_id and 
             forums_forums.package_id in ([join $list_of_package_ids ,])
+            $private_data_restriction
              order by parent_name,
              forums_forums.name
         </querytext>

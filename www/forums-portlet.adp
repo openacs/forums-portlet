@@ -18,48 +18,25 @@
 
 %>
 
-<if @can_read_private_data_p@>
+<if @forums:rowcount@>
 <if @shaded_p@ false>
-
-  <if @forums:rowcount@ gt 0>
-
-<%
-    set new_package_id ""
-    set old_package_id ""
-%>
 
 <multiple name="forums">
 
-<% set new_package_id $forums(package_id) %>
-
-  <if @one_instance_p@ false and @new_package_id@ ne @old_package_id@ and @old_package_id@ ne "">
-    </ul>
-  </if>
-
-  <if @one_instance_p@ false and @new_package_id@ ne @old_package_id@>
-    @forums.parent_name@
-    <ul>
-  </if>
-
+<if @one_instance_p@ false>@forums.parent_name@</if>
+  <ul>
+<group column="package_id">
     <li>
       <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-<if @forums.new_p@ eq t><span class="new_flag"><img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline"></span></if>
+      <if @forums.new_p@ eq t><span class="new_flag"><img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline"></span></if>
     </li>
-
-<%
-    set old_package_id $new_package_id
-%>
+</group>
+  </ul>
 
 </multiple>
 
+</if>
   </if>
   <else>
     <small>#forums-portlet.No_Forums#</small>
   </else>
-
-</if>
-<else>
-  &nbsp;
-</else>
-</if>
-

@@ -19,8 +19,15 @@ array set config $cf
 set shaded_p $config(shaded_p)
 set list_of_package_ids $config(package_id)
 set one_instance_p [ad_decode [llength $list_of_package_ids] 1 1 0]
-set can_read_private_data_p [acs_privacy::user_can_read_private_data_p -object_id [ad_conn package_id]]
 
 set query select_forums
+
+if { [acs_privacy::privacy_control_enabled_p] } {
+    set private_data_restriction [db_map dbqd.forums-portlet.www.forums-portlet.restrict_by_private_data_priv]
+} else {
+    set private_data_restriction ""
+}
+
+set user_id [ad_conn user_id]
 
 db_multirow forums $query {}
