@@ -38,7 +38,7 @@
   </if>
 
   <if @one_instance_p@ false and @new_package_id@ ne @old_package_id@>
-    <li>@forums.parent_name@
+    <div class="portlet-group">@forums.parent_name@</div>
     <ul>
   </if>
 
