@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 
 <queryset>
-    <rdbms><type>postgresql</type><version>7.2.1</version></rdbms>
+    <rdbms><type>postgresql</type><version>7.1</version></rdbms>
 
     <fullquery name="select_forums">
         <querytext>
 	    select forums_forums.package_id,
-            acs_object__name(apm_package.parent_id(forums_forums.package_id)) as parent_name,
+            acs_object__name(apm_package__parent_id(forums_forums.package_id)) as parent_name,
             (select site_node__url(site_nodes.node_id)
             from site_nodes
             where site_nodes.object_id = forums_forums.package_id) as url,
