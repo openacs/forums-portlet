@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<message_catalog package_key="forums-portlet" package_version="0.1a" locale="hu_HU" charset="utf-8">
+
+  <msg key="admin_pretty_name">Fórumok adminisztrációja</msg>
+  <msg key="disabled">kikapcsolva</msg>
+  <msg key="Forum">Fórum</msg>
+  <msg key="New">Új!</msg>
+  <msg key="New_Forum">Új fórum</msg>
+  <msg key="No_Forums">Nincs egy fórum sem.</msg>
+  <msg key="pretty_name">Fórumok</msg>
+</message_catalog>
