@@ -23,9 +23,7 @@ set can_read_private_data_p [acs_privacy::user_can_read_private_data_p -object_i
 
 db_multirow forums select_forums "
     select forums_forums.package_id,
-           (select apm_packages.instance_name
-            from apm_packages
-            where apm_packages.package_id = apm_package.parent_id(forums_forums.forum_id)) as parent_name,
+           acs_object.name(apm_package.parent_id(forums_forums.package_id)) as parent_name,
            (select site_node.url(site_nodes.node_id)
             from site_nodes
             where site_nodes.object_id = forums_forums.package_id) as url,
