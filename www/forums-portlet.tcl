@@ -18,6 +18,8 @@ array set config $cf
 
 set shaded_p $config(shaded_p)
 set list_of_package_ids $config(package_id)
+
+ns_log Notice "$list_of_package_ids"
 set one_instance_p [ad_decode [llength $list_of_package_ids] 1 1 0]
 
 set query select_forums
@@ -29,5 +31,13 @@ if { [acs_privacy::privacy_control_enabled_p] } {
 }
 
 set user_id [ad_conn user_id]
+
+set old_list_of_package_ids $list_of_package_ids
+set list_of_package_ids [list]
+foreach package_id $old_list_of_package_ids {
+    if {[permission::permission_p -object_id $package_id -privilege "read"]} {
+	lappend list_of_package_ids $package_id
+    }
+}
 
 db_multirow forums $query {}
