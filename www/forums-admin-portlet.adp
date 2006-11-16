@@ -25,7 +25,8 @@
 <if @forums.enabled_p@ ne t><b>(#forums-portlet.disabled#)</b></if>
   </li>
 </multiple>
-  <br>
+</ul>
+<ul>
   <li>
     <a href="@url@admin/forum-new?name=@encoded_default_name@">#forums-portlet.New_Forum#</a>
   </li>
