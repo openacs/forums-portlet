@@ -4,6 +4,7 @@
   <msg key="admin_pretty_name">Administración de foros</msg>
   <msg key="disabled">desactivado</msg>
   <msg key="Forum">Foro</msg>
+  <msg key="goto_forums_name">Ir al foro %forums.name%</msg>
   <msg key="lt_There_should_be_only_">Debe existir una sóla instancia de foros en cuanto a administración</msg>
   <msg key="New">¡Nuevo!</msg>
   <msg key="New_Forum">Foro nuevo</msg>
