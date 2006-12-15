@@ -27,7 +27,7 @@
         <ul>
           <group column="package_id">
             <li>
-              <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+              <a href="@forums.url@forum-view?forum_id=@forums.forum_id@" title="#forums-portlet.goto_forums_name#">@forums.name@</a>
               <if @forums.new_p@ eq t>
                 <span class="new_flag">
                   <img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline">
