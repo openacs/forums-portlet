@@ -6,16 +6,19 @@
     <pretty-plural>Forums Portlet</pretty-plural>
     <initial-install-p>f</initial-install-p>
     <singleton-p>t</singleton-p>
-
-    <version name="2.3.0d1" url="http://openacs.org/repository/download/apm/forums-portlet-2.3.0d1.apm">
+    
+    <version name="2.3.0d2" url="http://openacs.org/repository/download/apm/forums-portlet-2.3.0d2.apm">
         <owner url="http://openacs.org">OpenACS</owner>
-        <release-date>2006-12-31</release-date>
+        <release-date>2007-03-04</release-date>
         <vendor url="http://openacs.org">OpenACS</vendor>
+        <maturity>0</maturity>
 
-        <provides url="forums-portlet" version="2.3.0d1"/>
+        <provides url="forums-portlet" version="2.3.0d2"/>
         <requires url="forums" version="1.3d3"/>
         <requires url="new-portal" version="2.3.0d1"/>
 
+        <callbacks>
+        </callbacks>
         <parameters>
             <parameter datatype="number"  min_n_values="1"  max_n_values="1"  name="forums_portlet_region"  default="1" description="the defailt region for this portlet"/>
         </parameters>
