@@ -37,7 +37,7 @@ set user_id [ad_conn user_id]
 template::list::create -name forums -multirow forums -key forum_id -pass_properties {
 } -elements {
     item {
-        label "My Forums"
+        label "#forums-portlet.My_forums#"
         display_template {
         <b>@forums.parent_name@</b><br/>
           <group column="package_id">
