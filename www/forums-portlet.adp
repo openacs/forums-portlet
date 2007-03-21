@@ -22,9 +22,7 @@
       <listtemplate name="forums"></listtemplate>
 </if>
 <else>
-  <small>
     #new-portal.when_portlet_shaded#
-  </small>
 </else>
 
 
