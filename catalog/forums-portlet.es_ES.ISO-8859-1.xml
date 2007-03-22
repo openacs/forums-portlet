@@ -11,5 +11,5 @@
   <msg key="New_Forum">Foro nuevo</msg>
   <msg key="No_Forums">Sin Foros</msg>
   <msg key="pretty_name">Foros</msg>
-  <msg key="resources_acs-subsite_new_gif">&lt;img src=&quot;/resources/acs-subsite/new.gif&quot; /&gt;</msg>
+  <msg key="resources_acs-subsite_new_gif">&lt;img src=&quot;/resources/acs-subsite/new.gif&quot; alt=&quot;Nuevos mensajes&quot;&gt;</msg>
 </message_catalog>
