@@ -9,7 +9,7 @@
     
     <version name="2.3.0a1" url="http://openacs.org/repository/download/apm/forums-portlet-2.3.0d2.apm">
         <owner url="http://openacs.org">OpenACS</owner>
-        <release-date>2007-03-04</release-date>
+        <release-date>2007-03-31</release-date>
         <vendor url="http://openacs.org">OpenACS</vendor>
         <maturity>0</maturity>
 
