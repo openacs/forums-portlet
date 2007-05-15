@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="forums-portlet" package_version="2.2.0" locale="de_DE" charset="ISO-8859-1">
+<message_catalog package_key="forums-portlet" package_version="2.3.0" locale="de_DE" charset="ISO-8859-1">
 
   <msg key="admin_pretty_name">Diskussionsforen verwalten</msg>
   <msg key="disabled">Deaktiviert</msg>
@@ -9,4 +9,6 @@
   <msg key="New_Forum">Neues Forum erstellen</msg>
   <msg key="No_Forums">Keine Diskussionsforen vorhanden</msg>
   <msg key="pretty_name">Diskussionsforen</msg>
+  <msg key="resources_acs-subsite_new_gif">&lt;img src=&quot;/resources/acs-subsite/new_de_DE.gif&quot;  /&gt;
+</msg>
 </message_catalog>

@@ -18,35 +18,12 @@
 
 %>
 
-  <if @shaded_p@ false>
-
-    <if @forums:rowcount@ gt 0>
-
-      <multiple name="forums">
-        @forums.parent_name@
-        <ul>
-          <group column="package_id">
-            <li>
-              <a href="@forums.url@forum-view?forum_id=@forums.forum_id@" title="#forums-portlet.goto_forums_name#">@forums.name@</a>
-              <if @forums.new_p@ eq t>
-                <span class="new_flag">
-                  <img src="/resources/acs-subsite/new.gif" align="absmiddle" border="0" alt="#forums-portlet.New#" align="baseline">
-                </span>
-              </if>
-            </li>
-          </group>
-        </ul>
-      </multiple>
-
-    </if>
-    <else>
-      <small>#forums-portlet.No_Forums#</small>
-    </else>
-
-  </if>
-  <else>
-    &nbsp;
-  </else>
+<if @shaded_p@ false>
+      <listtemplate name="forums"></listtemplate>
+</if>
+<else>
+    #new-portal.when_portlet_shaded#
+</else>
 
 
 
