@@ -12,7 +12,7 @@
             where site_nodes.object_id = forums_forums.package_id) as url,
             forums_forums.forum_id,
             forums_forums.name,
-            case when last_modified > (cast(current_timestamp as date)- 1) then 't' else 'f' end as new_p
+						$unread_or_new_query
             from forums_forums_enabled forums_forums,
             acs_objects
             where acs_objects.object_id = forums_forums.forum_id and 

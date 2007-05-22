@@ -34,13 +34,37 @@ if { [acs_privacy::privacy_control_enabled_p] } {
 
 set user_id [ad_conn user_id]
 
-template::list::create -name forums -multirow forums -key forum_id -html {width 100%} -pass_properties {
+set useReadingInfo [forum::use_ReadingInfo_p]
+if { $useReadingInfo } {
+	set unread_or_new_query {
+		approved_thread_count-COALESCE((SELECT forums_reading_info_user.threads_read WHERE
+			forums_reading_info_user.forum_id=forums_forums_enabled.forum_id AND forums_reading_info_user.user_id=:user_id),0)
+			as count_unread
+    }
+} else {
+	set unread_or_new_query {
+		case when last_modified > (cast(current_timestamp as date)- 1) then 't' else 'f' end as new_p
+	}
+}
+
+template::list::create -name forums -multirow forums -key forum_id -pass_properties {
+	useReadingInfo
 } -elements {
     item {
         label ""
         display_template {
         <b>@forums.parent_name@</b><br/>
           <group column="package_id">
+					<if @useReadingInfo@>
+		<if  @forums.count_unread@ gt 0>
+		<strong>
+                </if>
+                 &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+		<if  @forums.count_unread@ gt 0>
+                  </strong>(@forums.count_unread@)
+		</if>
+		</if>
+		<else>
               <if @forums.new_p@ eq t>
 	        &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
                 <span class="new_flag">
@@ -50,6 +74,8 @@ template::list::create -name forums -multirow forums -key forum_id -html {width 
               <else>
 	        &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a><br/>
 	      </else>
+		</else>
+
           </group>
         }
     }
