@@ -53,7 +53,7 @@ template::list::create -name forums -multirow forums -key forum_id -pass_propert
     item {
         label ""
         display_template {
-        <b>@forums.parent_name@</b><br/>
+        <b>@forums.parent_name@</b><br>
           <group column="package_id">
 					<if @useReadingInfo@>
 		<if  @forums.count_unread@ gt 0>
@@ -68,11 +68,11 @@ template::list::create -name forums -multirow forums -key forum_id -pass_propert
               <if @forums.new_p@ eq t>
 	        &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
                 <span class="new_flag">
-                  #forums-portlet.resources_acs-subsite_new_gif#<br/>
+                  #forums-portlet.resources_acs-subsite_new_gif#<br>
                 </span>
               </if>
               <else>
-	        &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a><br/>
+	        &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a><br>
 	      </else>
 		</else>
 
