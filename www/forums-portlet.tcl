@@ -43,7 +43,7 @@ if { $useReadingInfo } {
     }
 } else {
 	set unread_or_new_query {
-		case when last_modified > (cast(current_timestamp as date)- 1) then 't' else 'f' end as new_p
+		case when last_post > (cast(current_timestamp as date)- 1) then 't' else 'f' end as new_p
 	}
 }
 
