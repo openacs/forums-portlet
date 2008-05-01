@@ -53,30 +53,21 @@ template::list::create -name forums -multirow forums -key forum_id -pass_propert
     item {
         label ""
         display_template {
-        <b>@forums.parent_name@</b><br>
-          <group column="package_id">
-					<if @useReadingInfo@>
-		<if  @forums.count_unread@ gt 0>
-		<strong>
-                </if>
-                 &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-		<if  @forums.count_unread@ gt 0>
-                  </strong>(@forums.count_unread@)
-		</if>
-		</if>
-		<else>
-              <if @forums.new_p@ eq t>
-	        &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-                <span class="new_flag">
-                  #forums-portlet.resources_acs-subsite_new_gif#<br>
-                </span>
+            <b>@forums.parent_name@</b>
+            <group column="package_id">
+            <br>&raquo; 
+              <if @useReadingInfo@>
+                <if @forums.count_unread@ gt 0><strong></if>
+                  <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+                <if  @forums.count_unread@ gt 0></strong>(@forums.count_unread@)</if>
               </if>
               <else>
-	        &raquo; <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a><br>
-	      </else>
-		</else>
-
-          </group>
+                <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+                <if @forums.new_p@ eq t>
+                  <span class="new_flag">#forums-portlet.resources_acs-subsite_new_gif#</span>
+                </if>
+              </else>
+            </group>
         }
     }
 }
