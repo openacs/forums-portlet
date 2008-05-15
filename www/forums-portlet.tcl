@@ -37,8 +37,8 @@ set user_id [ad_conn user_id]
 set useReadingInfo [forum::use_ReadingInfo_p]
 if { $useReadingInfo } {
 	set unread_or_new_query {
-		approved_thread_count-COALESCE((SELECT forums_reading_info_user.threads_read WHERE
-			forums_reading_info_user.forum_id=forums_forums_enabled.forum_id AND forums_reading_info_user.user_id=:user_id),0)
+		approved_thread_count-coalesce((SELECT forums_reading_info_user.threads_read from forums_reading_info_user  WHERE
+			forums_reading_info_user.forum_id=forums_forums.forum_id AND forums_reading_info_user.user_id=:user_id),0)
 			as count_unread
     }
 } else {
