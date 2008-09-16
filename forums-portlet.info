@@ -7,15 +7,15 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>t</singleton-p>
     
-    <version name="2.4.0" url="http://openacs.org/repository/download/apm/forums-portlet-2.4.0.apm">
+    <version name="2.4.1b1" url="http://openacs.org/repository/download/apm/forums-portlet-2.4.1b1.apm">
         <owner url="http://openacs.org">OpenACS</owner>
-        <release-date>2008-06-22</release-date>
+        <release-date>2008-09-16</release-date>
         <vendor url="http://openacs.org">OpenACS</vendor>
         <maturity>0</maturity>
 
-        <provides url="forums-portlet" version="2.4.0"/>
+        <provides url="forums-portlet" version="2.4.1b1"/>
         <requires url="forums" version="1.3d7"/>
-        <requires url="new-portal" version="2.4.0"/>
+        <requires url="new-portal" version="2.4.1b1"/>
 
         <callbacks>
         </callbacks>
