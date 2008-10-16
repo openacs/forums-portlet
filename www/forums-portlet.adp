@@ -19,7 +19,31 @@
 %>
 
 <if @shaded_p@ false>
-      <listtemplate name="forums"></listtemplate>
+    <if @forums:rowcount@ gt 0>
+      <multiple name="forums">
+        <h2>@forums.parent_name@</h2>
+        <ul>
+          <group column="package_id">
+            <li>
+              <if @useReadingInfo@>
+                <if @forums.count_unread@ gt 0><strong></if>
+                <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+                <if  @forums.count_unread@ gt 0></strong>(@forums.count_unread@)</if>
+              </if>
+              <else>
+                <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
+                <if @forums.new_p@ eq t>
+                  <span class="new_flag">#forums-portlet.resources_acs-subsite_new_gif#</span>
+                </if>
+              </else>
+            </li>
+          </group>
+        </ul>
+      </multiple>
+    </if>
+    <else>
+      <p>#forums.No_Forums#</p>
+    </else>
 </if>
 <else>
     #new-portal.when_portlet_shaded#

@@ -47,29 +47,4 @@ if { $useReadingInfo } {
 	}
 }
 
-template::list::create -name forums -multirow forums -key forum_id -pass_properties {
-	useReadingInfo
-} -elements {
-    item {
-        label ""
-        display_template {
-            <b>@forums.parent_name@</b>
-            <group column="package_id">
-            <br>&raquo; 
-              <if @useReadingInfo@>
-                <if @forums.count_unread@ gt 0><strong></if>
-                  <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-                <if  @forums.count_unread@ gt 0></strong>(@forums.count_unread@)</if>
-              </if>
-              <else>
-                <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-                <if @forums.new_p@ eq t>
-                  <span class="new_flag">#forums-portlet.resources_acs-subsite_new_gif#</span>
-                </if>
-              </else>
-            </group>
-        }
-    }
-}
-
 db_multirow forums $query {}
