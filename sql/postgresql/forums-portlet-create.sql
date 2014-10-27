@@ -35,14 +35,20 @@
 
 -- \i forums-portlet-sc-create.sql
 
-create function inline_0()
-returns integer as '
-declare
+
+
+--
+-- procedure inline_0/0
+--
+CREATE OR REPLACE FUNCTION inline_0(
+
+) RETURNS integer AS $$
+DECLARE
   ds_id portal_datasources.datasource_id%TYPE;
-begin
+BEGIN
   ds_id := portal_datasource__new (
-    ''forums_portlet'',
-    ''Displays the forums''
+    'forums_portlet',
+    'Displays the forums'
   );
 
   -- 4 defaults procs
@@ -50,46 +56,46 @@ begin
   -- shadeable_p 
   perform portal_datasource__set_def_param (
 	ds_id,
-	''t'',	
-	''t'',
-	''shadeable_p'',
-	''t''
+	't',	
+	't',
+	'shadeable_p',
+	't'
   );	
 
   -- shaded_p 
   perform portal_datasource__set_def_param (
 	ds_id,
-	''t'',
-	''t'',
-	''shaded_p'',
-	''f''
+	't',
+	't',
+	'shaded_p',
+	'f'
   );	
 
   -- hideable_p 
   perform portal_datasource__set_def_param (
 	ds_id,
-	''t'',
-	''t'',
-	''hideable_p'',
-	''t''
+	't',
+	't',
+	'hideable_p',
+	't'
   );	
 
   -- user_editable_p 
   perform portal_datasource__set_def_param (
 	ds_id,
-	''t'',
-	''t'',
-	''user_editable_p'',
-	''f''
+	't',
+	't',
+	'user_editable_p',
+	'f'
   );	
 
   -- link_hideable_p 
   perform portal_datasource__set_def_param (
 	ds_id,
-	''t'',
-	''t'',
-	''link_hideable_p'',
-	''t''
+	't',
+	't',
+	'link_hideable_p',
+	't'
   );	
 
 
@@ -98,128 +104,150 @@ begin
   -- package_id must be configured
   perform portal_datasource__set_def_param (
 	ds_id,
-	''t'',
-	''f'',
-	''package_id'',
-	''''
+	't',
+	'f',
+	'package_id',
+	''
   );	
 
   -- do we show the community name or not?
   perform portal_datasource__set_def_param (
 	ds_id,
-	''t'',
-	''f'',
-	''display_group_name_p'',
-	''t''
+	't',
+	'f',
+	'display_group_name_p',
+	't'
   );
 return 0;
 
-end;' language 'plpgsql';
+END;
+$$ LANGUAGE plpgsql;
 select inline_0();
 drop function inline_0();
 
-create function inline_0()
-returns integer as '
-declare
+
+
+--
+-- procedure inline_0/0
+--
+CREATE OR REPLACE FUNCTION inline_0(
+
+) RETURNS integer AS $$
+DECLARE
 	foo integer;
-begin
+BEGIN
 	-- create the implementation
 	foo := acs_sc_impl__new (
-		''portal_datasource'',
-		''forums_portlet'',
-		''forums_portlet''
+		'portal_datasource',
+		'forums_portlet',
+		'forums_portlet'
 	);
 
   return 0;
 
-end;' language 'plpgsql';
+END;
+$$ LANGUAGE plpgsql;
 select inline_0();
 drop function inline_0();
 
-create function inline_0()
-returns integer as '
-declare
+
+
+--
+-- procedure inline_0/0
+--
+CREATE OR REPLACE FUNCTION inline_0(
+
+) RETURNS integer AS $$
+DECLARE
 	foo integer;
-begin
+BEGIN
 
 	-- add all the hooks
 	foo := acs_sc_impl_alias__new (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''GetMyName'',
-	       ''forums_portlet::get_my_name'',
-	       ''TCL''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'GetMyName',
+	       'forums_portlet::get_my_name',
+	       'TCL'
 	);
 
 	foo := acs_sc_impl_alias__new (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''GetPrettyName'',
-	       ''forums_portlet::get_pretty_name'',
-	       ''TCL''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'GetPrettyName',
+	       'forums_portlet::get_pretty_name',
+	       'TCL'
 	);
 
 	foo := acs_sc_impl_alias__new (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''Link'',
-	       ''forums_portlet::link'',
-	       ''TCL''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'Link',
+	       'forums_portlet::link',
+	       'TCL'
 	);
 
 	foo := acs_sc_impl_alias__new (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''AddSelfToPage'',
-	       ''forums_portlet::add_self_to_page'',
-	       ''TCL''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'AddSelfToPage',
+	       'forums_portlet::add_self_to_page',
+	       'TCL'
 	);
 
 	foo := acs_sc_impl_alias__new (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''Show'',
-	       ''forums_portlet::show'',
-	       ''TCL''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'Show',
+	       'forums_portlet::show',
+	       'TCL'
 	);
 
 	foo := acs_sc_impl_alias__new (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''Edit'',
-	       ''forums_portlet::edit'',
-	       ''TCL''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'Edit',
+	       'forums_portlet::edit',
+	       'TCL'
 	);
 
 	foo := acs_sc_impl_alias__new (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''RemoveSelfFromPage'',
-	       ''forums_portlet::remove_self_from_page'',
-	       ''TCL''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'RemoveSelfFromPage',
+	       'forums_portlet::remove_self_from_page',
+	       'TCL'
 	);
 
 	return 0;
 
-end;' language 'plpgsql';
+END;
+$$ LANGUAGE plpgsql;
 select inline_0();
 drop function inline_0();
 
-create function inline_0()
-returns integer as '
-declare
+
+
+--
+-- procedure inline_0/0
+--
+CREATE OR REPLACE FUNCTION inline_0(
+
+) RETURNS integer AS $$
+DECLARE
 	foo integer;
-begin
+BEGIN
 
 	-- Add the binding
 	perform acs_sc_binding__new (
-	    ''portal_datasource'',
-	    ''forums_portlet''
+	    'portal_datasource',
+	    'forums_portlet'
 	);
 	
 	return 0;
 
-end;' language 'plpgsql';
+END;
+$$ LANGUAGE plpgsql;
 select inline_0();
 drop function inline_0();
 

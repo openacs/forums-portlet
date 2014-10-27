@@ -33,16 +33,22 @@
 -- 2002-07-12
 
 
-create function inline_0()
-returns integer as '
-declare  
+
+
+--
+-- procedure inline_0/0
+--
+CREATE OR REPLACE FUNCTION inline_0(
+
+) RETURNS integer AS $$
+DECLARE  
   ds_id portal_datasources.datasource_id%TYPE;
-begin
+BEGIN
 
 --  begin 
     select datasource_id into ds_id
       from portal_datasources
-     where name = ''forums-portlet'';
+     where name = 'forums-portlet';
 --  exception when no_data_found then
 --  ds_id := null;
 --  end;
@@ -53,76 +59,84 @@ begin
 
 return 0;
 
-end;' language 'plpgsql';
+END;
+$$ LANGUAGE plpgsql;
 
 select inline_0();
 drop function inline_0();
 
 
-create function inline_1()
-returns integer as '
-declare
+
+
+--
+-- procedure inline_1/0
+--
+CREATE OR REPLACE FUNCTION inline_1(
+
+) RETURNS integer AS $$
+DECLARE
 	foo integer;
-begin
+BEGIN
 
 	-- add all the hooks
 	foo := acs_sc_impl_alias__delete (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''GetMyName''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'GetMyName'
 	);
 
 	foo := acs_sc_impl_alias__delete (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''GetPrettyName''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'GetPrettyName'
 	);
 
 
 	foo := acs_sc_impl_alias__delete (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''Link''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'Link'
 	);
 
 	foo := acs_sc_impl_alias__delete (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''AddSelfToPage''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'AddSelfToPage'
 	);
 
 	foo := acs_sc_impl_alias__delete (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''Show''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'Show'
 	);
 
 	foo := acs_sc_impl_alias__delete (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''Edit''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'Edit'
 	);
 
 	foo := acs_sc_impl_alias__delete (
-	       ''portal_datasource'',
-	       ''forums_portlet'',
-	       ''RemoveSelfFromPage''
+	       'portal_datasource',
+	       'forums_portlet',
+	       'RemoveSelfFromPage'
 	);
 
 	-- Drop the binding
 	perform acs_sc_binding__delete (
-	    ''portal_datasource'',
-	    ''forums_portlet''
+	    'portal_datasource',
+	    'forums_portlet'
 	);
 
 	-- drop the impl
 	foo := acs_sc_impl__delete (
-		''portal_datasource'',
-		''forums_portlet''
+		'portal_datasource',
+		'forums_portlet'
 	);
 	
 	return 0;
-end;' language 'plpgsql';
+END;
+$$ LANGUAGE plpgsql;
 
 select inline_1();
 drop function inline_1();
