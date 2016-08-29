@@ -17,7 +17,7 @@
         <maturity>2</maturity>
 
         <provides url="forums-portlet" version="2.9.0"/>
-        <requires url="forums" version="1.3d7"/>
+        <requires url="forums" version="1.3d13"/>
         <requires url="new-portal" version="2.9.0"/>
 
         <callbacks>
