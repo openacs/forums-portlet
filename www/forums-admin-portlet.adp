@@ -22,7 +22,7 @@
 <multiple name="forums">
   <li>
     <a href="@url@admin/forum-edit?forum_id=@forums.forum_id@">@forums.name@</a>
-<if @forums.enabled_p@ ne t><b>(#forums-portlet.disabled#)</b></if>
+<if @forums.enabled_p@ ne t><strong>(#forums-portlet.disabled#)</strong></if>
   </li>
 </multiple>
 </ul>

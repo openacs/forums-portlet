@@ -18,7 +18,7 @@
 
 %>
 
-<if @shaded_p@ false>
+<if @shaded_p;literal@ false>
     <if @forums:rowcount@ gt 0>
       <multiple name="forums">
         <h2>@forums.parent_name@</h2>
@@ -32,7 +32,7 @@
               </if>
               <else>
                 <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
-                <if @forums.new_p@ eq t>
+                <if @forums.new_p;literal@ true>
                   <span class="new_flag">#forums-portlet.resources_acs-subsite_new_gif#</span>
                 </if>
               </else>

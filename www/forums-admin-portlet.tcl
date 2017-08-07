@@ -52,3 +52,9 @@ append default_name " [_ forums-portlet.Forum]"
 set encoded_default_name [ns_urlencode $default_name]
 
 ad_return_template
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
