@@ -18,13 +18,11 @@ array set config $cf
 
 set shaded_p $config(shaded_p)
 set list_of_package_ids $config(package_id)
-set one_instance_p [ad_decode [llength $list_of_package_ids] 1 1 0]
+set one_instance_p [expr {[llength $list_of_package_ids] == 1}]
 
 # get the parameter from forums-portlet to set the new-graphic correspondingly
 set package_id [apm_package_id_from_key [forums_portlet::my_package_key]]
 set default_new_period [parameter::get -package_id $package_id -parameter DefaultPeriodNewGraphic -default 2]
-
-set query select_forums
 
 if { [acs_privacy::privacy_control_enabled_p] } {
     set private_data_restriction [db_map dbqd.forums-portlet.www.forums-portlet.restrict_by_private_data_priv]
@@ -47,7 +45,28 @@ if { $useReadingInfo } {
     }
 }
 
-db_multirow forums $query {}
+db_multirow -extend { url } forums select_forums {
+    select
+        apm_packages.instance_name as parent_name,
+        forums_forums.package_id,
+        forums_forums.forum_id,
+        forums_forums.name,
+        $unread_or_new_query
+    from
+        forums_forums_enabled forums_forums
+        INNER JOIN acs_objects ON (acs_objects.object_id=forums_forums.package_id)
+        INNER JOIN apm_packages ON (apm_packages.package_id=acs_objects.context_id)
+    where
+        forums_forums.package_id IN ([join $list_of_package_ids ,])
+        $private_data_restriction
+    order by
+        parent_name,
+        package_id,
+        forums_forums.name
+} {
+    set url [lindex [site_node::get_url_from_object_id -object_id $package_id] 0]
+}
+    
 
 # Local variables:
 #    mode: tcl
