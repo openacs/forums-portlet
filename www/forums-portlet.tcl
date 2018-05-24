@@ -44,7 +44,7 @@ if { $useReadingInfo } {
     }
 }
 
-db_multirow -extend { url } forums select_forums {
+db_multirow -extend { url } forums select_forums [subst {
     select
         apm_packages.instance_name as parent_name,
         forums_forums.package_id,
@@ -62,7 +62,7 @@ db_multirow -extend { url } forums select_forums {
         parent_name,
         package_id,
         forums_forums.name
-} {
+}] {
     set url [lindex [site_node::get_url_from_object_id -object_id $package_id] 0]
 }
     
