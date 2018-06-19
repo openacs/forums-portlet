@@ -44,28 +44,29 @@ if { $useReadingInfo } {
     }
 }
 
-db_multirow -extend { url } forums select_forums [subst {
-    select
-        apm_packages.instance_name as parent_name,
-        forums_forums.package_id,
-        forums_forums.forum_id,
-        forums_forums.name,
-        $unread_or_new_query
-    from
-        forums_forums_enabled forums_forums
-        INNER JOIN acs_objects ON (acs_objects.object_id=forums_forums.package_id)
-        INNER JOIN apm_packages ON (apm_packages.package_id=acs_objects.context_id)
-    where
-        forums_forums.package_id IN ([join $list_of_package_ids ,])
-        $private_data_restriction
-    order by
-        parent_name,
-        package_id,
-        forums_forums.name
-}] {
-    set url [lindex [site_node::get_url_from_object_id -object_id $package_id] 0]
+if {[llength $list_of_package_ids] > 0} {
+    db_multirow -extend { url } forums select_forums [subst {
+        select
+            apm_packages.instance_name as parent_name,
+            forums_forums.package_id,
+            forums_forums.forum_id,
+            forums_forums.name,
+            $unread_or_new_query
+        from
+            forums_forums_enabled forums_forums
+            INNER JOIN acs_objects ON (acs_objects.object_id=forums_forums.package_id)
+            INNER JOIN apm_packages ON (apm_packages.package_id=acs_objects.context_id)
+        where
+            forums_forums.package_id IN ([join $list_of_package_ids ,])
+            $private_data_restriction
+        order by
+            parent_name,
+            package_id,
+            forums_forums.name
+    }] {
+        set url [lindex [site_node::get_url_from_object_id -object_id $package_id] 0]
+    }
 }
-    
 
 # Local variables:
 #    mode: tcl

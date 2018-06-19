@@ -19,7 +19,7 @@
 %>
 
 <if @config.shaded_p;literal@ false>
-    <if @forums:rowcount@ gt 0>
+    <if @forums:rowcount@ not nil and @forums:rowcount@ gt 0>
       <multiple name="forums">
         <h2>@forums.parent_name@</h2>
         <ul>
