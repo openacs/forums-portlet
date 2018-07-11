@@ -33,6 +33,8 @@ namespace eval forums_portlet {
 
     ad_proc -public get_pretty_name {
     } {
+        Get pretty name.
+    } {
 	return "#forums-portlet.pretty_name#"
     }
 
@@ -42,6 +44,8 @@ namespace eval forums_portlet {
     }
 
     ad_proc -public link {
+    } {
+        Get link. This is currently empty.
     } {
 	return ""
     }
@@ -53,7 +57,7 @@ namespace eval forums_portlet {
 	{-param_action:required}
     } {
 	Adds a forums PE to the given portal or appends the given forums package_id
-        to the forums PE that already on the portal
+        to the forums PE that is already on the portal.
     } {
         return [portal::add_element_parameters \
             -portal_id $portal_id \
@@ -73,7 +77,7 @@ namespace eval forums_portlet {
 	portal_id
 	package_id
     } {
-	Removes a forums PE from the given page or just the given forums's package_id
+	Removes a forums PE from the given page or just the given forums's package_id.
     } {
         portal::remove_element_parameters \
             -portal_id $portal_id \
@@ -84,6 +88,7 @@ namespace eval forums_portlet {
     ad_proc -public show {
 	cf
     } {
+        Show the forums portlet.
     } {
         # no return call required with the helper proc
         portal::show_proc_helper \
