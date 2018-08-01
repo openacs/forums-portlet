@@ -25,7 +25,7 @@
         <ul>
           <group column="package_id">
             <li>
-              <if @useReadingInfo@>
+              <if @useReadingInfo;literal@ true>
                 <if @forums.count_unread@ gt 0><strong></if>
                 <a href="@forums.url@forum-view?forum_id=@forums.forum_id@">@forums.name@</a>
                 <if  @forums.count_unread@ gt 0></strong>(@forums.count_unread@)</if>
