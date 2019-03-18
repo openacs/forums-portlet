@@ -24,7 +24,7 @@ set package_id [apm_package_id_from_key [forums_portlet::my_package_key]]
 set default_new_period [parameter::get -package_id $package_id -parameter DefaultPeriodNewGraphic -default 2]
 
 if { [acs_privacy::privacy_control_enabled_p] } {
-    set private_data_restriction [db_map dbqd.forums-portlet.www.forums-portlet.restrict_by_private_data_priv]
+    set private_data_restriction {and acs_permission.permission_p(forums_forums.package_id, :user_id, 'read_private_data')}
 } else {
     set private_data_restriction ""
 }
