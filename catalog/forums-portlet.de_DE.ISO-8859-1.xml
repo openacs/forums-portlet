@@ -9,6 +9,6 @@
   <msg key="New_Forum">Neues Forum erstellen</msg>
   <msg key="No_Forums">Keine Diskussionsforen vorhanden</msg>
   <msg key="pretty_name">Diskussionsforen</msg>
-  <msg key="resources_acs-subsite_new_gif">&lt;img src=&quot;/resources/acs-subsite/new_de_DE.gif&quot;  /&gt;
+  <msg key="resources_acs-subsite_new_gif">&lt;img src=&#34;/resources/acs-subsite/new_de_DE.gif&#34;  /&gt;
 </msg>
 </message_catalog>
