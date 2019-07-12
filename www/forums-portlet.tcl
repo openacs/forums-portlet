@@ -22,7 +22,15 @@ set one_instance_p [expr {[llength $list_of_package_ids] == 1}]
 # get the parameter from forums-portlet to set the new-graphic correspondingly
 set package_id [apm_package_id_from_key [forums_portlet::my_package_key]]
 set default_new_period [parameter::get -package_id $package_id -parameter DefaultPeriodNewGraphic -default 2]
-
+#
+# TODO
+#
+# As long as the forum is still accesible directly via URL, this is mostly
+# useless, as the whole 'privacy control' is ignored there.
+#
+# Question is, if we want to enforce such policy there, or we can just remove
+# this permission check altogether.
+#
 if { [acs_privacy::privacy_control_enabled_p] } {
     set private_data_restriction {and acs_permission.permission_p(forums_forums.package_id, :user_id, 'read_private_data')}
 } else {
