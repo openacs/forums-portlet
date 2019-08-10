@@ -25,7 +25,7 @@ set default_new_period [parameter::get -package_id $package_id -parameter Defaul
 #
 # TODO
 #
-# As long as the forum is still accesible directly via URL, this is mostly
+# As long as the forum is still accessible directly via URL, this is mostly
 # useless, as the whole 'privacy control' is ignored there.
 #
 # Question is, if we want to enforce such policy there, or we can just remove
