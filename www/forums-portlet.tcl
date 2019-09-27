@@ -13,6 +13,9 @@
 #  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
 #  details.
 #
+ad_include_contract {
+    Forums Portlet
+}
 
 array set config $cf	
 
