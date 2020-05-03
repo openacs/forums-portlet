@@ -17,7 +17,7 @@ ad_include_contract {
     Forums Portlet
 }
 
-array set config $cf	
+array set config $cf
 
 set list_of_package_ids $config(package_id)
 set one_instance_p [expr {[llength $list_of_package_ids] == 1}]
@@ -47,7 +47,7 @@ if { $useReadingInfo } {
     set unread_or_new_query {
         approved_thread_count-coalesce((SELECT forums_reading_info_user.threads_read from forums_reading_info_user  WHERE
                 forums_reading_info_user.forum_id=forums_forums.forum_id AND forums_reading_info_user.user_id=:user_id),0)
-		as count_unread
+                as count_unread
     }
 } else {
     set unread_or_new_query {
