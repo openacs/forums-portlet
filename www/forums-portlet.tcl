@@ -68,7 +68,7 @@ if {[llength $list_of_package_ids] > 0} {
             INNER JOIN acs_objects ON (acs_objects.object_id=forums_forums.package_id)
             INNER JOIN apm_packages ON (apm_packages.package_id=acs_objects.context_id)
         where
-            forums_forums.package_id IN ([join $list_of_package_ids ,])
+            forums_forums.package_id IN ([ns_dbquotelist $list_of_package_ids])
             $private_data_restriction
         order by
             parent_name,
