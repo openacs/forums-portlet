@@ -16,7 +16,7 @@
         <vendor url="http://dotlrn.org">DotLRN Consortium</vendor>
         <maturity>2</maturity>
 
-        <provides url="forums-portlet" version="2.10.0d2x"/>
+        <provides url="forums-portlet" version="2.10.0d2"/>
 	<requires url="acs-tcl" version="5.10.0d32"/>
         <requires url="forums" version="1.3"/>
         <requires url="new-portal" version="2.10.0d0"/>
