@@ -9,14 +9,18 @@ ad_library {
 aa_register_case -procs {
         forums_admin_portlet::link
         forums_portlet::link
+        forums_admin_portlet::get_pretty_name
+        forums_portlet::get_pretty_name
     } -cats {
         api
         production_safe
-    } forums_portlet_links {
-        Test diverse link procs.
+    } forums_portlet_links_names {
+        Test diverse link and name procs.
 } {
     aa_equals "Forums admin portlet link" "[forums_admin_portlet::link]" ""
     aa_equals "Forums portlet link"       "[forums_portlet::link]" ""
+    aa_equals "Forums admin portlet pretty name" "[forums_admin_portlet::get_pretty_name]" "#forums-portlet.admin_pretty_name#"
+    aa_equals "Forums portlet pretty name" "[forums_portlet::get_pretty_name]" "#forums-portlet.pretty_name#"
 }
 
 # Local variables:
