@@ -34,11 +34,7 @@ set default_new_period [parameter::get -package_id $package_id -parameter Defaul
 # Question is, if we want to enforce such policy there, or we can just remove
 # this permission check altogether.
 #
-if { [acs_privacy::privacy_control_enabled_p] } {
-    set private_data_restriction {and acs_permission.permission_p(forums_forums.package_id, :user_id, 'read_private_data')}
-} else {
-    set private_data_restriction ""
-}
+set private_data_restriction {and acs_permission.permission_p(forums_forums.package_id, :user_id, 'read_private_data')}
 
 set user_id [ad_conn user_id]
 
