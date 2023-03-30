@@ -24,12 +24,16 @@ aa_register_case -procs {
 }
 
 aa_register_case -procs {
-        forums_portlet::add_self_to_page
-        forums_portlet::remove_self_from_page
-    } -cats {
-        api
-    } forums_portlet_add_remove_from_page {
-        Test add/remove portlet procs.
+    forums_portlet::get_my_name
+    forums_portlet::add_self_to_page
+    forums_portlet::remove_self_from_page
+    forums_admin_portlet::get_my_name
+    forums_admin_portlet::add_self_to_page
+    forums_admin_portlet::remove_self_from_page
+} -cats {
+    api
+} forums_portlet_add_remove_from_page {
+    Test add/remove portlet procs.
 } {
     #
     # Helper proc to check portal elements
@@ -59,7 +63,7 @@ aa_register_case -procs {
         set community_id [dotlrn_community::new -community_type dotlrn_community -pretty_name foo]
         if {$community_id ne ""} {
             aa_log "Community created: $community_id"
-            set portal_id [dotlrn_community::get_admin_portal_id -community_id $community_id]
+            set portal_id [dotlrn_community::get_portal_id -community_id $community_id]
             set package_id [dotlrn::instantiate_and_mount $community_id [forums_portlet::my_package_key]]
             #
             # forums_portlet
@@ -79,6 +83,27 @@ aa_register_case -procs {
             # Add portlet.
             #
             forums_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id -param_action ""  -display_group_name_p true
+            aa_true "Portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
+
+            #
+            # forums_admin_portlet
+            #
+            set portlet_name [forums_admin_portlet::get_my_name]
+            aa_log "Exists? [portlet_exists_p $portal_id $portlet_name]"
+            #
+            # Add portlet.
+            #
+            forums_admin_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id
+            aa_true "Portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
+            #
+            # Remove portlet.
+            #
+            forums_admin_portlet::remove_self_from_page -portal_id $portal_id
+            aa_false "Portlet is in community portal after removal" "[portlet_exists_p $portal_id $portlet_name]"
+            #
+            # Add portlet.
+            #
+            forums_admin_portlet::add_self_to_page -portal_id $portal_id -package_id $package_id
             aa_true "Portlet is in community portal after addition" "[portlet_exists_p $portal_id $portlet_name]"
         } else {
             aa_error "Community creation failed"
