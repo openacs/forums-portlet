@@ -13,8 +13,11 @@
 #  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
 #  details.
 #
+ad_include_contract {
+    Forums Portlet
+}
 
-array set config $cf	
+array set config $cf
 
 set list_of_package_ids $config(package_id)
 set one_instance_p [expr {[llength $list_of_package_ids] == 1}]
@@ -22,12 +25,16 @@ set one_instance_p [expr {[llength $list_of_package_ids] == 1}]
 # get the parameter from forums-portlet to set the new-graphic correspondingly
 set package_id [apm_package_id_from_key [forums_portlet::my_package_key]]
 set default_new_period [parameter::get -package_id $package_id -parameter DefaultPeriodNewGraphic -default 2]
-
-if { [acs_privacy::privacy_control_enabled_p] } {
-    set private_data_restriction [db_map dbqd.forums-portlet.www.forums-portlet.restrict_by_private_data_priv]
-} else {
-    set private_data_restriction ""
-}
+#
+# TODO
+#
+# As long as the forum is still accessible directly via URL, this is mostly
+# useless, as the whole 'privacy control' is ignored there.
+#
+# Question is, if we want to enforce such policy there, or we can just remove
+# this permission check altogether.
+#
+set private_data_restriction {and acs_permission.permission_p(forums_forums.package_id, :user_id, 'read_private_data')}
 
 set user_id [ad_conn user_id]
 
@@ -36,7 +43,7 @@ if { $useReadingInfo } {
     set unread_or_new_query {
         approved_thread_count-coalesce((SELECT forums_reading_info_user.threads_read from forums_reading_info_user  WHERE
                 forums_reading_info_user.forum_id=forums_forums.forum_id AND forums_reading_info_user.user_id=:user_id),0)
-		as count_unread
+                as count_unread
     }
 } else {
     set unread_or_new_query {
@@ -57,7 +64,7 @@ if {[llength $list_of_package_ids] > 0} {
             INNER JOIN acs_objects ON (acs_objects.object_id=forums_forums.package_id)
             INNER JOIN apm_packages ON (apm_packages.package_id=acs_objects.context_id)
         where
-            forums_forums.package_id IN ([join $list_of_package_ids ,])
+            forums_forums.package_id IN ([ns_dbquotelist $list_of_package_ids])
             $private_data_restriction
         order by
             parent_name,

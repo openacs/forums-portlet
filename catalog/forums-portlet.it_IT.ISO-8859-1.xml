@@ -4,9 +4,12 @@
   <msg key="admin_pretty_name">Amministrazione dei Forum</msg>
   <msg key="disabled">disabilitato</msg>
   <msg key="Forum">Forum</msg>
-  <msg key="lt_There_should_be_only_">Ci dovrebbe essere un'unica istanza di forum per scopi amministrativi</msg>
+  <msg key="goto_forums_name">Vai al forum %forums.name%</msg>
+  <msg key="lt_There_should_be_only_">Ci dovrebbe essere un&#39;unica istanza di forum per scopi amministrativi</msg>
+  <msg key="My_forums">I Miei Forum</msg>
   <msg key="New">Nuovo!</msg>
   <msg key="New_Forum">Nuovo Forum</msg>
   <msg key="No_Forums">Nessun Forum</msg>
   <msg key="pretty_name">Forum</msg>
+  <msg key="resources_acs-subsite_new_gif">&lt;img src=&#34;/resources/acs-subsite/new.gif&#34; alt=&#34;Nuovi messaggi&#34;&gt;</msg>
 </message_catalog>
